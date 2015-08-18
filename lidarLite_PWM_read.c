@@ -13,9 +13,8 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * See <http://www.gnu.org/licenses/> for a copy of the GNU General Public 
+ * License. 
  */
 
 #include <stdio.h>
@@ -31,7 +30,13 @@
 #define GPIO15 48
 #define HIGH 1
 #define LOW  0 
-#define OFFSET 0.165349936
+
+/* 
+ * Set offset to improve accuracy.  
+ * This value will be subtracted from the calculated length. 
+ * During testing, 0.16 was the value required. 
+ */ 
+#define OFFSET 0
 
 bool keepRunning = true;
 
@@ -46,6 +51,7 @@ int main()
     float length;
     mraa_gpio_context lidar_pin;
     mraa_gpio_context power_en_pin;
+
     mraa_result_print(mraa_init());
 
     /* Initiate lidar_pin GPIO pin */ 
