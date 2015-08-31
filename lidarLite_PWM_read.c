@@ -85,7 +85,7 @@ int main()
         {
             length = (pulsewidth * 1E6) / 1000.0;
             length -= OFFSET;
-            printf(">>> Length: %f <<<\n", length);
+            printf(">>> Length: %f m <<<\n", length);
         }
         else /* There was an error. Reinitiate LidarLite */ 
         {
